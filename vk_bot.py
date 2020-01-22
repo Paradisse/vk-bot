@@ -25,7 +25,7 @@ def main():
 
                 if event.obj.action['type'] == 'chat_invite_user':    # проверяет тип метода
                     user_id = event.obj.action['member_id']
-# Способ Ивана
+# Мой способ проверки списка
                     if not (check(user_list, user_id) == True):
                         vk.messages.removeChatUser(
                             chat_id=(event.obj.peer_id - 2000000000),    # ID беседы
@@ -34,7 +34,7 @@ def main():
                         )
             except TypeError: pass
 
-# Мой способ проверки списка
+# Способ febday
                 # print(event.obj)
                 # a = (user_id in user_list)
                 # if not a:
