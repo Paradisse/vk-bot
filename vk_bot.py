@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import vk_api
+import datetime
 from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType
+from vk_api.utils import get_random_id
 
 user_list = [194437246, 188852279]    # список с ID пользователей
 
