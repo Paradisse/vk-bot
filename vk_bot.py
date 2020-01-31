@@ -11,6 +11,12 @@ def main():
 
     longpoll = VkBotLongPoll(vk_session, '172647717')
 
+    def add_user(id):
+        user_list.append(id)
+
+    def delete_user(id):
+        user_list.remove(id)
+
     def check(array, f):    # проверка списка
         for item in array:    # берёт каждый ID из списка и проверяет
             if item == f:    # если хоть один ID подходит, то он выдаёт TRUE и не кикает, а иначе FALSE и соответственно кик
@@ -33,6 +39,18 @@ def main():
                             member_id=event.obj.action['member_id'],    # ID пользователя
                         )
             except TypeError: pass
+            
+            try:
+                if event.obj.text.split('/id ')[0] == '':
+                    user = int(event.obj.text.split('/id ')[1])
+                    add_user(user)
+                    print(f'добавил\nтеперь база:{user_list}')
+                elif event.obj.text.split('/did ')[0] == '':
+                    user = int(event.obj.text.split('/did ')[1])
+                    delete_user(user)
+                    print(f'удалил\nтеперь база:{user_list}')
+            except (ValueError, IndexError):
+                pass
 
 # Способ febday
                 # print(event.obj)
