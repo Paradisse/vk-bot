@@ -67,13 +67,13 @@ def main():
                     if check_admin(members):
                         user = int(event.obj.text.split('/id ')[1])
                         add_user(user)
-                        # print(f'добавил\nтеперь база:{user_list}')
+                        print(f'добавил\nтеперь база:{user_list}')
 
                 elif event.obj.text.split('/did ')[0] == '':
                     if check_admin(members):
                         user = int(event.obj.text.split('/did ')[1])
                         delete_user(user)
-                        # print(f'удалил\nтеперь база:{user_list}')
+                        print(f'удалил\nтеперь база:{user_list}')
             except (ValueError, IndexError):
                 pass
 
